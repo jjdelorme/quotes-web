@@ -20,6 +20,6 @@ export class QuoteService {
 
   // Get a random quote
   getRandomQuote() : Observable<Quote> {
-    return this.http.get<Quote>(BaseUrl + '/quotes/random');
+    return this.http.get<Quote>(BaseUrl + '/random-quote');
   }
 }

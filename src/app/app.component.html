@@ -9,7 +9,7 @@
     <mat-card *ngFor="let quote of quotes | async">
       <mat-card-content>
         {{ quote.quote }}
-        <span class="author" style="font-style: italic;">{{ quote.author }}</span>
+        <span class="author">{{ quote.author }}</span>
       </mat-card-content>
     </mat-card>
   </div>

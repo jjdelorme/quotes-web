@@ -1,1 +1,28 @@
-<div>Quotes</div>
+<div>
+  <!-- Header -->
+  <mat-toolbar>
+    <span>Quotes</span>
+  </mat-toolbar>
+
+  <!-- Create a card for each quote  -->
+  <div class="container">
+    <mat-card *ngFor="let quote of quotes | async">
+      <mat-card-content>
+        {{ quote.quote }}
+        <span class="author" style="font-style: italic;">{{ quote.author }}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Get a random quote -->
+  <button mat-raised-button color="primary" *ngIf="!showRandomQuote"
+      (click)="getRandomQuote()">
+    Get Random Quote
+  </button>
+
+  <!-- Get all quotes -->
+  <button mat-raised-button color="primary" *ngIf="showRandomQuote"
+      (click)="getAllQuotes()">
+    Get All Quotes
+  </button>
+</div>

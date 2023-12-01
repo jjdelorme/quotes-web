@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    margin: 30px;
+  }
+
+  // Show button on it's own line and center it
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  

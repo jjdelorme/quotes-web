@@ -16,10 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor(private readonly quoteService: QuoteService) {}
-
   quotes!: Observable<Quote[]>;
   showRandomQuote = false;
+  
+  constructor(private readonly quoteService: QuoteService) {}
 
   getAllQuotes() {
     this.quotes = this.quoteService.getAllQuotes();

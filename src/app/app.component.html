@@ -15,13 +15,21 @@
   </div>
 
   <!-- Get a random quote -->
-  <button mat-raised-button color="primary" *ngIf="!showRandomQuote"
-      (click)="getRandomQuote()">
-    Get Random Quote
-  </button>
+  <div *ngIf="!showRandomQuote" class="random-quote-button">
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Prompt</mat-label>
+      <input matInput placeholder="Enter a seed word of phrase" [(ngModel)]="randomPrompt">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" 
+        (click)="getRandomQuote()">
+      Get Random Quote
+    </button>
+  </div>
 
   <!-- Get all quotes -->
-  <button mat-raised-button color="primary" *ngIf="showRandomQuote"
+  <button mat-raised-button color="primary" *ngIf="showRandomQuote" class="random-quote-button"
       (click)="getAllQuotes()">
     Get All Quotes
   </button>

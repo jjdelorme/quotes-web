@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Quote } from './quote';
@@ -20,7 +20,9 @@ export class QuoteService {
   }
 
   // Get a random quote
-  getRandomQuote() : Observable<Quote> {
-    return this.http.get<Quote>(RandomQuoteUrl + '/random-quote');
+  getRandomQuote(prompt: string) : Observable<Quote> {
+    const params = new HttpParams().set('prompt', prompt);
+
+    return this.http.get<Quote>(RandomQuoteUrl + '/random-quote', { params });
   }
 }

@@ -10,6 +10,12 @@
 }
 
 // Show button on it's own line and center it
+.random-quote-button mat-form-field {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
 button {
   display: block;
   margin: 0 auto;

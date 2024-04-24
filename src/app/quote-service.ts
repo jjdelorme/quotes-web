@@ -4,8 +4,6 @@ import { of, tap, Observable } from 'rxjs';
 
 import { Quote } from './quote';
 
-const RandomQuoteUrl = 'http://localhost:5000/random-quote';
-
 @Injectable({
   providedIn: 'root',
 })

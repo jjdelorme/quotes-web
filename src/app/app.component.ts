@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  quotes!: Observable<Quote[]>;
+  quotes?: Observable<Quote[]> = undefined;
   showRandomQuote = false;
   randomPrompt = '';
   

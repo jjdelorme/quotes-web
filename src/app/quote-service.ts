@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { of, tap, Observable } from 'rxjs';
 
 import { Quote } from './quote';
 
-const BaseUrl = 'http://localhost:8083';
-const RandomQuoteUrl = 'http://localhost:5000';
+const RandomQuoteUrl = 'http://localhost:5000/random-quote';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuoteService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   // Get all quotes
   getAllQuotes() : Observable<Quote[]> {
-    return this.http.get<Quote[]>(BaseUrl + '/quotes');
+    // make up some dummy quotes to return
+    return of([
+      { id: 1, quote: 'Quote 1.', author: 'Author 1' },
+      { id: 2, quote: 'Quote 2.', author: 'Author 2' },
+      { id: 3, quote: 'Quote 3.', author: 'Author 3' },
+    ]);
   }
+
 
   // Get a random quote
   getRandomQuote(prompt: string) : Observable<Quote> {
-    const params = new HttpParams().set('prompt', prompt);
-
-    return this.http.get<Quote>(RandomQuoteUrl + '/random-quote', { params });
+    // create a dummy quote
+    const quote: Quote = { id: 1, quote: 'Totally random quote.', author: 'Anonymous' };
+    return of(quote);
   }
 }

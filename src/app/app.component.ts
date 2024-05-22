@@ -9,11 +9,12 @@ import { Quote } from './quote';
 import { QuoteService } from './quote-service';
 import { Observable, of, map } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatCardModule, MatButtonModule, MatInputModule, FormsModule],
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, MatCardModule, MatButtonModule, MatInputModule, FormsModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   quotes?: Observable<Quote[]> = undefined;
   showRandomQuote = false;
   randomPrompt = '';
+  searchTerm = '';
   
   constructor(private readonly quoteService: QuoteService) {}
 
@@ -36,6 +38,10 @@ export class AppComponent implements OnInit {
     
     this.showRandomQuote = true;
   }
+
+  searchQuotes() {
+    this.quotes = this.quoteService.searchQuotes(this.searchTerm);
+  }  
 
   ngOnInit() {
     this.getAllQuotes();

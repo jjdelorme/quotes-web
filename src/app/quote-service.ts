@@ -28,4 +28,10 @@ export class QuoteService {
     const quote: Quote = { id: 1, quote: 'Totally random quote.', author: 'Anonymous' };
     return of(quote);
   }
+
+  searchQuotes(query: string) : Observable<Quote[]> {
+    // return a dummy quote that contains the query string
+    const quote: Quote = { id: 1, quote: `Quote containing your: ${query}.`, author: 'Author 1' };
+    return of([quote]);
+  }
 }

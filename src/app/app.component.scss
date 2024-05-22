@@ -20,3 +20,21 @@ button {
   display: block;
   margin: 0 auto;
 }
+
+mat-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  margin-top: 20px;
+ 
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar mat-form-field {
+  width: 100%;
+  max-width: 400px;
+}

@@ -4,7 +4,13 @@
     <span>Quotes</span>
   </mat-toolbar>
 
-  <!-- Create a card for each quote  -->
+  <div class="search-bar">
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Search by title..." [(ngModel)]="searchTerm" (keyup.enter)="searchQuotes()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>    
+  </div>
+
   <div class="container">
     <mat-card *ngFor="let quote of quotes | async">
       <mat-card-content>

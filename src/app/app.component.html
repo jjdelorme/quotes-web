@@ -4,6 +4,8 @@
     <span>Quotes</span>
   </mat-toolbar>
 
+  <div *ngIf="error" class="error-message">{{error}}</div>
+
   <!-- Create a card for each quote  -->
   <div class="container">
     <mat-card *ngFor="let quote of quotes | async">

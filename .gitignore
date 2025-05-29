@@ -1,42 +1,112 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Node.js & Package Managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json # Often committed, but can be ignored if using yarn.lock or if preferred
+yarn.lock         # Often committed, but can be ignored if using package-lock.json or if preferred
+pnpm-lock.yaml    # For pnpm users
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# TypeScript
+# Compiled JavaScript files (if you only commit .ts files)
+*.js
+*.js.map
+# Compiled declaration files (if generated and not part of the source)
+# *.d.ts
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Build output
+dist/
+out/
+build/
+public/build/ # Common for some Vue setups (e.g., Laravel Mix with Vue)
+www/          # Common for Ionic/Angular or Cordova builds
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Angular specific
+.angular/
+*.ngsummary.json
+*.ngstyle.ts
+*.ngfactory.ts
+*.ngsummary.js
+*.ngstyle.js
+*.ngfactory.js
+# Ivy intermediate files (Angular 9+)
+__ivy_ngcc__/
 
-# Visual Studio Code
+# Vue specific
+.vuepress/dist # For VuePress
+.nuxt/         # For Nuxt.js
+# Vue CLI 3+ service worker (if not customized)
+/public/service-worker.js
+# Vue CLI 3+ .env files (except .env.example)
+.env.local
+.env.*.local
+
+# Test results and coverage
+coverage/
+lcov-report/
+test-results/
+junit.xml
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE & Editor specific files
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Environment variables
+.env
+.env.development
+.env.production
+# Add other .env.* files as needed, but keep .env.example or similar committed
+
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# Optional: Compiled CSS from preprocessors (if you commit source .scss, .less, etc.)
+# *.css
+# *.css.map
+
+# Specific to some tools or libraries
+.cache/
+.eslintcache
+.stylelintcache
+.tersercache
+
+# If using Docker
+.dockerignore
+Dockerfile # Usually committed, but can be ignored if generated or specific to local dev
+
+# Mobile builds (if applicable, e.g., with Capacitor/Cordova)
+platforms/
+plugins/

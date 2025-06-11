@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { of, tap, Observable } from 'rxjs';
+import { of, Observable } from 'rxjs';
 
 import { Quote } from './quote';
 

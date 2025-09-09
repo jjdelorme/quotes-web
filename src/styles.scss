@@ -1,7 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --neutral-700: #5C6063;
+  --neutral-900: #1E2021;
+  --neutral-white: #FFFFFF;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--neutral-white);
+  color: var(--neutral-900);
+}
 
 .error-message {
     background-color: lightcoral;

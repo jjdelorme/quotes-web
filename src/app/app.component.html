@@ -1,19 +1,25 @@
 <div>
   <!-- Header -->
   <mat-toolbar>
-    <span>Quotes</span>
+    <img src="assets/3a99c6cea3291b048216bbc4da6e86fb16837693.svg" alt="Cymbal logo" class="logo">
   </mat-toolbar>
 
   <div *ngIf="error" class="error-message">{{error}}</div>
 
   <!-- Create a card for each quote  -->
   <div class="container">
-    <mat-card *ngFor="let quote of quotes | async">
-      <mat-card-content>
-        {{ quote.quote }}
-        <span class="author">{{ quote.author }}</span>
-      </mat-card-content>
-    </mat-card>
+    <div class="list-item" *ngFor="let quote of quotes | async">
+      <div class="content">
+        <div class="leading-element">
+          <img alt="icon" class="icon" src="assets/c585a3b8e96272686e21ed2fd0cb5a4d3986da40.svg" />
+        </div>
+        <div class="text">
+          <div class="title">{{ quote.quote }}</div>
+          <div class="description">{{ quote.author }}</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
   </div>
 
   <!-- Get a random quote -->

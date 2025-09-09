@@ -1,3 +1,7 @@
+mat-toolbar {
+  background-color: var(--primary-color);
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -22,7 +26,7 @@ button {
 }
 
 .list-item {
-  background-color: white;
+  background-color: var(--neutral-white);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -64,22 +68,23 @@ button {
   .title {
     font-size: 16px;
     line-height: 24px;
-    color: #1e2021;
+    color: var(--text-color);
   }
 
   .description {
     font-size: 14px;
     line-height: 20px;
-    color: #5c6063;
+    color: var(--secondary-color);
   }
 
   .divider {
     height: 1px;
     width: 100%;
-    background-color: #e0e0e0;
+    background-color: var(--secondary-color);
   }
 }
 
 .logo {
   height: 40px;
+  width: auto;
 }

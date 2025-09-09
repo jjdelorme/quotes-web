@@ -20,9 +20,27 @@ mat-toolbar {
   margin: 0 auto;
 }
 
-button {
+button.mat-primary {
+  background-color: #efc634 !important; /* Use important to override Angular Material styles */
+  color: black !important;
+  border-radius: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  padding: 8px 16px !important;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
+
+  .mat-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mat-icon {
+    height: 18px;
+    width: 18px;
+  }
 }
 
 .list-item {
@@ -85,6 +103,6 @@ button {
 }
 
 .logo {
-  height: 40px;
+  max-height: 40px;
   width: auto;
 }

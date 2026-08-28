@@ -100,3 +100,7 @@ firebase-debug.log*
 # Temporary folders
 tmp/
 temp/
+.nx/cache
+.nx/workspace-data
+__pycache__/
+*.pyc

@@ -1,0 +1,29 @@
+{                                                                                                                                     
+  "strict-eslint-demo": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|create_file|edit_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/demo_hook.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|create_file|edit_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ./scripts/demo_hook.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

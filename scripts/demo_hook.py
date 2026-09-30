@@ -84,7 +84,7 @@ def handle_pre_tool_use(payload):
   # Run ESLint on TypeScript / JavaScript files
   if target_file and (target_file.endswith(".ts") or target_file.endswith(".js")):
     workspace_paths = payload.get("workspacePaths", [])
-    workspace_root = workspace_paths[0] if workspace_paths else os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    workspace_root = workspace_paths[0] if workspace_paths else os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
     success, error_msg = run_eslint(target_file, proposed_content, workspace_root)
     if not success:
@@ -116,25 +116,44 @@ def handle_post_tool_use(payload):
   return {}
 
 
+
+def is_post_tool_use(payload):
+  return "error" in payload or "toolResult" in payload or "result" in payload
+
+
 def main():
+  raw = ""
   try:
     raw = sys.stdin.read()
+    try:
+      with open("/tmp/hook_debug.log", "a") as f:
+        f.write(raw + "\n---\n")
+    except Exception:
+      pass
+
     if not raw.strip():
       print(json.dumps({}))
       return
 
     payload = json.loads(raw)
 
-    if "toolCall" in payload and "decision" not in payload:
-      result = handle_pre_tool_use(payload)
-    else:
+    if is_post_tool_use(payload):
       result = handle_post_tool_use(payload)
+    else:
+      result = handle_pre_tool_use(payload)
 
     print(json.dumps(result))
 
   except Exception as e:
     sys.stderr.write(f"Hook error: {e}\n")
-    print(json.dumps({"decision": "allow"}))
+    try:
+      payload = json.loads(raw) if raw.strip() else {}
+      if is_post_tool_use(payload):
+        print(json.dumps({}))
+      else:
+        print(json.dumps({"decision": "allow"}))
+    except Exception:
+      print(json.dumps({}))
 
 
 if __name__ == "__main__":
